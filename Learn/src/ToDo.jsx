@@ -79,7 +79,7 @@ const ToDo = () => {
                 item.map((c)=>{
 
                     return (
-                        <li key={c.id}>
+                         <li key={c.id}>
 
                             <input type="checkbox"
                              checked={c.checked}
