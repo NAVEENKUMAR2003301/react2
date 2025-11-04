@@ -5,14 +5,12 @@ import { FaRegEdit } from "react-icons/fa";
 const ToDo = () => {
 
     let [item,setItem] = useState([
-        {id:1,label:"html",checked : true},
-        {id:2,label:"css",checked : false},
-        {id:3,label:"js",checked : true}
+        
     ])
 
     let [newItem,setNewItem] = useState("")
     let [isEditing,setEditing]=useState(false)
-
+    let [currentElement,setCurrentElement] = useState(null)
 
 
     let handleChecked  = (id)=>{
@@ -43,17 +41,45 @@ const ToDo = () => {
         setItem(newItem);
         
         
+        
     }
 
     let handleAdd = ()=>{
-        setItem([
-            ...item,{
-                id : item.length+1,
-                label : newItem,
-                checked : false
-            }
-        ])
-        setNewItem("")
+        if(isEditing){
+           let newList1 =  item.map((c)=>{
+                return c.id === currentElement ? {...c,label : newItem} : c 
+            })
+            setItem(newList1)
+            setNewItem("")
+            setEditing(false)
+            
+        }else{
+            setItem([
+                ...item,{
+                    id : item.length+1,
+                    label : newItem,
+                    checked : false
+                }
+            ])
+            setNewItem("")
+        }
+    }
+
+    let handleUpdate = (id)=>{
+
+        setEditing(true)
+        setCurrentElement(id)
+
+       let listItem =  item.find((c)=>{
+
+            return c.id === id 
+            
+        })
+        setNewItem(listItem.label)
+
+
+        
+
     }
     
     
@@ -89,7 +115,7 @@ const ToDo = () => {
 
                             <label>{c.label}</label>
                             <MdOutlineDeleteForever role='button' tabIndex={0} onClick={()=>{handleDelete(c.id)}} />
-                            <FaRegEdit role='button' tabIndex={0} />
+                            <FaRegEdit role='button' tabIndex={0} onClick={()=>{handleUpdate(c.id)}} />
                         </li>
                     )
 
