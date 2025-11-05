@@ -5,6 +5,11 @@ import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
 import Header from './Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Product from './Product'
+import ProductDetials from './ProductDetials'
+import Electronices from './Electronices'
+import UseEffect from './UseEffect1'
+
 
 const App = () => {
   return (
@@ -15,6 +20,12 @@ const App = () => {
           <Route path='/' element={<ToDo/>}/>
           <Route path='/login' element={<LoginPage/>}/>
           <Route path='/sign' element={<SignupPage/>}/>
+          <Route path='/use' element={<UseEffect/>}/>
+          <Route path='/product' element={<Product/>}>
+             <Route index element={<ProductDetials/>}/>
+             <Route path="detials" element={<ProductDetials/>}/>
+             <Route path="electronics" element={<Electronices/>}/>
+          </Route>
         </Routes>
       </Router>
     </div>
