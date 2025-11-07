@@ -9,6 +9,7 @@ import Product from './Product'
 import ProductDetials from './ProductDetials'
 import Electronices from './Electronices'
 import UseEffect from './UseEffect1'
+import ProductList from './ProductList'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/login' element={<LoginPage/>}/>
           <Route path='/sign' element={<SignupPage/>}/>
           <Route path='/use' element={<UseEffect/>}/>
+          <Route path='/productList' element={<ProductList/>}/>
           <Route path='/product' element={<Product/>}>
              <Route index element={<ProductDetials/>}/>
              <Route path="detials" element={<ProductDetials/>}/>

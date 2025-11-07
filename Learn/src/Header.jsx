@@ -26,6 +26,7 @@ function NavScrollExample() {
                             <Link to="/sign">sign in</Link>
                             <Link to="/product">Product</Link>
                             <Link to="/use">UseEffect</Link>
+                            <Link to="/productList">Product List</Link>
         
                         </div>
                         

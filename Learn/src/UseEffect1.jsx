@@ -4,13 +4,14 @@ const UseEffect1 = () => {
 
   let [count,setCount] = useState(0)
   let [count1,setCount1] = useState(0)
+  
 
    
   useEffect(()=>{
     console.log("this effect will run after every render");
     
   })
-  
+
 
   useEffect(()=>{
     console.log("this effect will run only on intial render");
